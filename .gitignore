@@ -1,0 +1,9 @@
+# SFML Stuff
+SFML
+*.dll
+
+# IDE-specific Stuff
+.vscode
+
+# Executables
+*.exe
