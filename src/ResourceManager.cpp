@@ -46,15 +46,9 @@ void ResourceManager::removeSound(const std::string& name) {
     sounds.erase(name);
 }
 
-void ResourceManager::clearTextures() {
-    textures.clear();
-}
-void ResourceManager::clearFonts() {
-    fonts.clear();
-}
-void ResourceManager::clearSounds() {
-    sounds.clear();
-}
+void ResourceManager::clearTextures() { textures.clear(); }
+void ResourceManager::clearFonts() { fonts.clear(); }
+void ResourceManager::clearSounds() { sounds.clear(); }
 void ResourceManager::clearAllResources() {
     clearTextures();
     clearFonts();

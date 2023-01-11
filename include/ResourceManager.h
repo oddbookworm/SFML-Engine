@@ -12,8 +12,13 @@ typedef std::shared_ptr<sf::Texture> texPtr;
 typedef std::shared_ptr<sf::Font> fontPtr;
 typedef std::shared_ptr<sf::SoundBuffer> soundPtr;
 
+/**
+ * @brief Class that manages references to sf::Texture, sf::Font, and
+ * sf::SoundBuffer objects
+ *
+ */
 class ResourceManager {
-  public:
+public:
     /**
      * @brief add an sf::Texture into the manager
      *
@@ -79,22 +84,22 @@ class ResourceManager {
 
     /**
      * @brief removes all textures from the manager
-     * 
+     *
      */
     void clearTextures();
     /**
      * @brief removes all fonts from the manager
-     * 
+     *
      */
     void clearFonts();
     /**
      * @brief removes all sounds from the manager
-     * 
+     *
      */
     void clearSounds();
     /**
      * @brief removes all resources from the manager
-     * 
+     *
      */
     void clearAllResources();
 
@@ -123,7 +128,7 @@ class ResourceManager {
      */
     bool sound_FromFile(const std::string& filename, const std::string& name);
 
-  private:
+private:
     std::unordered_map<std::string, texPtr> textures;
     std::unordered_map<std::string, fontPtr> fonts;
     std::unordered_map<std::string, soundPtr> sounds;
