@@ -8,6 +8,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 
+#include "utility.hpp"
+
 typedef std::shared_ptr<sf::Texture> texPtr;
 typedef std::shared_ptr<sf::Font> fontPtr;
 typedef std::shared_ptr<sf::SoundBuffer> soundPtr;

@@ -5,17 +5,17 @@
 
 class UIElement {
 public:
-    UIElement(texPtr tex);
+    UIElement(texPtr tex, sf::Vector2f pos, sf::Vector2u size);
     
     void setVisible(bool isVisible);
 
     sf::Vector2f getPos();
     sf::Vector2u getSize();
 
-    virtual sf::Vector2f setPos(const sf::Vector2f newPos);
-    virtual sf::Vector2u setSize(const sf::Vector2u newSize);
+    virtual void setPos(sf::Vector2f newPos);
+    virtual void setSize(sf::Vector2u newSize);
 
-    virtual void draw(sf::RenderTarget& window);
+    virtual void draw(sf::RenderTarget& window) const;
 
     virtual ~UIElement() = default;
 

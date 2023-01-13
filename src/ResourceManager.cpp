@@ -1,5 +1,4 @@
 #include "../include/ResourceManager.h"
-#include "../include/utility.hpp"
 
 void ResourceManager::addTexture(const std::string& name, texPtr texture) {
     textures.emplace(name, texture);
