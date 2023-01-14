@@ -23,7 +23,8 @@ bool keyExists(std::unordered_map<K, V> _map, K key) {
     return !(_map.find(key) == _map.end());
 }
 
-inline sf::Vector2f getScaleFactor(const sf::Sprite& sprite, const sf::Vector2u& size) {
+inline sf::Vector2f getScaleFactor(const sf::Sprite& sprite,
+                                   const sf::Vector2u& size) {
     sf::Vector2u currSize = sprite.getTexture()->getSize();
 
     float scale_x = (float)size.x / currSize.x;

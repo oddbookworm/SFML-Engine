@@ -6,16 +6,20 @@
 
 int main() {
     ResourceManager man;
-    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(200, 200),
+    auto window = std::make_shared<sf::RenderWindow>(sf::VideoMode(500, 500),
                                                      "SFML works!");
+    UI ui(window);
     window->setFramerateLimit(60);
     float lastTime = 0;
     sf::Clock clock;
 
     man.tex_FromFile("assets/images/smiley.png", "jeff");
 
-    UIElement elem(man.getTexture("jeff"), sf::Vector2f(0, 0), sf::Vector2u(100, 30));
+    UIElement elem(man.getTexture("jeff"), sf::Vector2f(0, 0),
+                   sf::Vector2u(100, 30));
     elem.setVisible(true);
+
+    ui.addElement("dummy", &elem);
 
     while (window->isOpen()) {
         sf::Event event;
@@ -24,18 +28,17 @@ int main() {
                 window->close();
         }
 
-        elem.setPos(elem.getPos()+sf::Vector2f(1, 0));
+        elem.setPos(elem.getPos() + sf::Vector2f(1, 1));
 
         window->clear(sf::Color::Red);
-        elem.draw(*window);
+        ui.draw();
         window->display();
 
         float currentTime = clock.restart().asSeconds();
         float fps = 1.f / lastTime;
         lastTime = currentTime;
 
-        // window->setTitle(std::to_string(fps));
-        std::cout << fps << std::endl;
+        window->setTitle(std::to_string(fps));
     }
 
     return 0;

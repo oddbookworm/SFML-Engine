@@ -6,7 +6,7 @@
 class UIElement {
 public:
     UIElement(texPtr tex, sf::Vector2f pos, sf::Vector2u size);
-    
+
     void setVisible(bool isVisible);
 
     sf::Vector2f getPos();
@@ -33,14 +33,18 @@ protected:
 
 class UI {
 public:
-    UI(ResourceManager* manager);
+    UI(std::shared_ptr<sf::RenderWindow> win);
+
+    void draw() const;
+
+    void addElement(const std::string& name, UIElement* elem);
 
 private:
     // disallow default construction
-    UI();
+    UI() = default;
 
-    ResourceManager* man;
     std::unordered_map<std::string, UIElement*> elements;
+    std::weak_ptr<sf::RenderWindow> window;
 };
 
 #endif
